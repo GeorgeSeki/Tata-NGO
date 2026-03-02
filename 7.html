@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TATA - Our Team</title>
+    <link rel="stylesheet" href="all.css">
+    <link href="New css.css" rel="stylesheet"></head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="nembo.png" alt="TATA Logo">
+                <span>TATA</span>
+            </div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="2.html">About Us</a></li>
+                <li><a href="4.html">Vision & Mission</a></li>
+                <li><a href="6.html">Projects</a></li>
+                <li><a href="7.html">Team</a></li>
+                <li><a href="8.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="team" class="team-section">
+            <div class="container">
+                <h2>Our Leadership Team</h2>
+                <p>The management structure of TATA organization is built with democratic leadership, where board members are part of the Organization leaders.</p>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <img src="1.jpg" alt="Yohana Charles Sekimweri">
+                        <h3>Yohana Charles Sekimweri</h3>
+                        <p>Chairperson/Director</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="6.jpg" alt="Juma Ally Rashid">
+                        <h3>Juma Ally Rashid</h3>
+                        <p>Executive Secretary</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="cesilia.jpg" alt="cesilia">
+                        <h3>Cesilia Elias</h3>
+                        <p>Organization Accountant</p>
+                    </div>
+                    
+                    <div class="team-member" align="center">
+                        <img src="kula.jpg" alt="..........">
+                        <h3>Rehema Abdala Mbwego</h3>
+                        <p>Organization Road Safety and Good Governance Coordinator</p>
+                    </div>
+                     <div class="team-member">
+                        <img src="george.jpg" alt="George Hizza">
+                        <h3>George Hizza</h3>
+                        <p>Organization Education Coordinator</p>
+                    </div>
+                    <div class="team-member" align="center">
+                        <img src="SAMSONI NESHILIO KATAMBOI.jpg" alt="SAMSONI NESHILIO KATAMBOI">
+                        <h3>SAMSONI NESHILIO KATAMBOI</h3>
+                        <p>Organization Health and Environmental Coordinator</p>
+                    </div>
+                </div>
+<p>Under the current leadership, the organization is supported by sectoral committees in Education, Health and Environment, Agriculture, Road Safety, and Good Governance. The Board comprises both founding and appointed members. Its responsibilities include proposing candidates for vacant positions, reviewing contracts, making key organizational decisions, receiving and approving the budget, and providing guidance to the management unit on implementation and oversight.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 THINK AND ACT FOR TANZANIA (TATA). All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="imageLightbox">
+        <button class="lightbox-close">&times;</button>
+        <img src="" alt="" id="lightboxImage">
+    </div>
+
+    <script src="all.js"></script>
+    <script>
+        // Get all team member images
+        const teamImages = document.querySelectorAll('.team-member img');
+        const lightbox = document.getElementById('imageLightbox');
+        const lightboxImg = document.getElementById('lightboxImage');
+        const closeButton = document.querySelector('.lightbox-close');
+
+        // Add click event to all team member images
+        teamImages.forEach(image => {
+            image.addEventListener('click', () => {
+                lightboxImg.src = image.src;
+                lightboxImg.alt = image.alt;
+                lightbox.classList.add('active');
+            });
+        });
+
+        // Close lightbox when clicking the close button
+        closeButton.addEventListener('click', () => {
+            lightbox.classList.remove('active');
+        });
+
+        // Close lightbox when clicking outside the image
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                lightbox.classList.remove('active');
+            }
+        });
+
+        // Close lightbox with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+                lightbox.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>

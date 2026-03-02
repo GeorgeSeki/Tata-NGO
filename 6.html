@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TATA - Projects</title>
+    <link rel="stylesheet" href="all.css">
+    <link href="New css.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="nembo.png" alt="TATA Logo">
+                <span>TATA</span>
+            </div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="2.html">About Us</a></li>
+                <li><a href="4.html">Vision & Mission</a></li>
+                <li><a href="6.html">Projects</a></li>
+                <li><a href="7.html">Team</a></li>
+                <li><a href="8.html">Contact</a></li>
+
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="projects" class="projects-section">
+            <div class="container">
+                <h2>Our Projects and Activities</h2>
+                <p>Since the inception of the Organization in August 2019, some activities have been undertaken using the organization members' contributions.</p>
+                <div class="project-grid">
+                    <div class="project-item">
+                        <h3>Community Awareness for People with Disabilities</h3>
+                        <p>Conducted community awareness rising to people with disabilities to build self-confidence and understanding for their rights. This also involved individual self-assessment to evaluate capacities, strengths, and weaknesses to find areas of intervention.</p>
+                        <img src="aware.jpeg" alt="Community Awareness">
+                        <img src="aware1.jpeg" alt="community Awareness">
+                    </div>
+                    <div class="project-item">
+                        <h3>Good Governance (Voters' Education 2020 National Election)</h3>
+                        <p>Conducted awareness to the community about voters' education in the National Election of 2020 in Korogwe District, Tanga region.</p>
+                        <img src="elimu ya mpiga kura.jpg" alt="voters education">
+                       <img src="kara.jpg" alt="voters education">
+                    </div>
+                    <div class="project-item">
+                        <h3>Environmental Protection and Sanitation</h3>
+                            <p>Performed environmental protection and sanitation activities in parts of Korogwe District, including Manundu, Hale, and Makinyumbi–Miembeni.</p>
+                        <img src="environment.jpg" alt="Environmental protection">
+                        <img src="commu.jpg" alt="Awareness">
+
+
+                    </div>
+                    <div class="project-item">
+                        <h3>Data Collection for People with Disabilities</h3>
+                        <p>Collected data from people with disabilities to determine how the organization can support them through donor funding.</p>
+                        <img src="coll.jpeg" alt="data Collection">
+
+                    </div>
+                </div>
+                <p class="funding-note">The TATA organization is actively seeking and making efforts to access grants from internal and external donors for funding to continue ongoing activities and expand its reach. Several project proposals are available for potential donors interested in our thematic areas.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 THINK AND ACT FOR TANZANIA (TATA). All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="imageLightbox">
+        <button class="lightbox-close">&times;</button>
+        <img src="" alt="" id="lightboxImage">
+    </div>
+
+    <script src="all.js"></script>
+    <script>
+        // Get all project images
+        const projectImages = document.querySelectorAll('.project-item img');
+        const lightbox = document.getElementById('imageLightbox');
+        const lightboxImg = document.getElementById('lightboxImage');
+        const closeButton = document.querySelector('.lightbox-close');
+
+        // Add click event to all project images
+        projectImages.forEach(image => {
+            image.addEventListener('click', () => {
+                lightboxImg.src = image.src;
+                lightboxImg.alt = image.alt;
+                lightbox.classList.add('active');
+            });
+        });
+
+        // Close lightbox when clicking the close button
+        closeButton.addEventListener('click', () => {
+            lightbox.classList.remove('active');
+        });
+
+        // Close lightbox when clicking outside the image
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                lightbox.classList.remove('active');
+            }
+        });
+
+        // Close lightbox with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+                lightbox.classList.remove('active');
+            }
+        });
+    </script>
+    <script>
+        // Simple per-project image slider: cycles through images inside each .project-item
+        (function() {
+            const INTERVAL_MS = 3000; // 3 seconds
+
+            function initProjectSliders() {
+                const projectItems = document.querySelectorAll('.project-item');
+
+                projectItems.forEach(item => {
+                    const imgs = Array.from(item.querySelectorAll('img'));
+                    if (imgs.length <= 1) return; // nothing to slide
+
+                    let current = 0;
+
+                    // Hide all except the first
+                    imgs.forEach((img, i) => {
+                        img.style.display = i === 0 ? '' : 'none';
+                    });
+
+                    // Cycle function
+                    setInterval(() => {
+                        imgs[current].style.display = 'none';
+                        current = (current + 1) % imgs.length;
+                        imgs[current].style.display = '';
+                    }, INTERVAL_MS);
+                });
+            }
+
+            // Run after DOM ready
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', initProjectSliders);
+            } else {
+                initProjectSliders();
+            }
+        })();
+    </script>
+</body>
+</html>
